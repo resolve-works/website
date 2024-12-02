@@ -73,6 +73,7 @@
 
 	main {
 		max-width: 60rem;
+		padding: 2rem 1rem;
 	}
 
 	a {
