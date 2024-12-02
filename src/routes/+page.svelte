@@ -28,6 +28,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>> resolve</title>
+</svelte:head>
+
 <article>
 	<main>
 		<h1 class="typing-animation" class:complete={is_complete}>{displayed_text}</h1>
