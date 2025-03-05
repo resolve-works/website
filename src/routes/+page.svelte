@@ -4,10 +4,10 @@
 
 	import { onMount } from 'svelte';
 
-	export let text: string = '> resolve';
+	export let text: string = 'Resolve';
 	export let speed: number = 50;
 
-	let displayed_text: string = '> ';
+	let displayed_text: string = 'R';
 	let is_complete: boolean = false;
 
 	function type_text() {
@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-	<title>> resolve</title>
+	<title>resolve</title>
 </svelte:head>
 
 <article>
@@ -38,54 +38,25 @@
 		<p>
 			We are IT professionals with a vision. That vision is for technology to empower humans.
 			Empower them to make sense of the void, empower them to find answers, and empower them to dare
-			to ask questions. Will you explore with us? <a href="mailto:johan@resolve.works">Contact us</a
-			>.
+			to ask questions.
 		</p>
+
+		<p>Will you explore with us? <a href="mailto:johan@resolve.works">Contact us</a></p>
 		<br />
+
+		<h3>Projects</h3>
+		<ul>
+			<li>
+				<a href="/projects/insight">Insight</a>: The knowledge base for newsrooms.
+			</li>
+		</ul>
 	</main>
 </article>
 
 <style>
-	:global {
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			font-family: 'Moderustic Variable', serif;
-		}
-
-		body {
-			font-family: 'Lora Variable', serif;
-			margin: 0;
-			line-height: 1.6rem;
-		}
-	}
-
-	h1 {
-		font-weight: normal;
-		font-size: 2rem;
-	}
-
-	article {
-		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	main {
-		max-width: 60rem;
-		padding: 2rem 1rem;
-	}
-
-	a {
-		color: #2c6c2f;
-	}
-
-	a:hover {
-		color: #1a401c;
+	ul {
+		list-style: none;
+		padding-left: 0;
 	}
 
 	.typing-animation {
