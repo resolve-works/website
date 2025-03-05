@@ -2,10 +2,11 @@
 	import Section from '$lib/Section.svelte';
 	import Conversation from '$lib/Conversation.svelte';
 	import InputGroup from '$lib/InputGroup.svelte';
+	import Icon from '$lib/Icon.svelte';
 </script>
 
 <Section is_primary={true}>
-	<div class="hero">
+	<div class="split hero">
 		<div>
 			<h1>Insight</h1>
 
@@ -32,6 +33,45 @@
 			></Conversation>
 		</div>
 	</div>
+</Section>
+
+<Section>
+	<div class="features">
+		<div class="split">
+			<div>
+				<h2>Make sense of documents</h2>
+			</div>
+
+			<div>
+				<p>Keyword search and conversations with a generative AI model.</p>
+			</div>
+		</div>
+
+		<ul class="checks">
+			<li>
+				<Icon class="gg-check-o" /> Multi-user
+			</li>
+
+			<li>
+				<Icon class="gg-check-o" /> Store large volumes
+			</li>
+
+			<li>
+				<Icon class="gg-check-o" /> Web GUI + CLI interface
+			</li>
+		</ul>
+	</div>
+
+	Insight is an organizational knowledge base designed to store and make sense of large volumes of
+	documents through keyword searches and conversations with a generative AI model.
+
+	<p>
+		It is a tool aimed at organizations that have to make sense of large amounts of documents, for
+		example newsrooms or thinktanks. It is a multi-user system which allows users to ingest sets of
+		PDFs. Users can use the <a href="https://github.com/resolve-works/insight-ui">Web GUI</a>
+		or <a href="https://github.com/resolve-works/insight-client">CLI client / Python library</a> to add
+		document sets for their own use, or for the whole organization.
+	</p>
 </Section>
 
 <p>
@@ -87,15 +127,46 @@
 </p>
 
 <style>
-	.hero {
+	.split {
 		display: grid;
 		grid-template-columns: 50% 50%;
 		gap: 4rem;
+	}
+
+	.hero {
 		padding: 8rem 0;
 		color: var(--text-color-light);
 	}
 
 	.hero h1 {
+		font-size: 4rem;
+		margin: 1rem 0 2rem 0;
+	}
+
+	h2 {
+		font-size: 3rem;
+	}
+
+	.features {
+		margin: 2rem 0;
+	}
+
+	.features p {
 		font-size: 2rem;
+		line-height: 2.5rem;
+		margin-top: 3rem;
+	}
+
+	ul.checks {
+		list-style: none;
+		padding-left: 0;
+		display: flex;
+		gap: 2rem;
+	}
+
+	ul.checks li {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 </style>
