@@ -1,33 +1,3 @@
-<script lang="ts">
-	import '@fontsource-variable/moderustic/index.css';
-	import '@fontsource-variable/lora/index.css';
-
-	import { onMount } from 'svelte';
-
-	export let text: string = 'Resolve';
-	export let speed: number = 50;
-
-	let displayed_text: string = 'R';
-	let is_complete: boolean = false;
-
-	function type_text() {
-		if (displayed_text.length < text.length) {
-			displayed_text += text[displayed_text.length];
-			setTimeout(type_text, speed);
-		} else {
-			is_complete = true;
-		}
-	}
-
-	onMount(() => {
-		const timeoutId = setTimeout(type_text);
-
-		return () => {
-			clearTimeout(timeoutId);
-		};
-	});
-</script>
-
 <svelte:head>
 	<title>resolve</title>
 </svelte:head>
@@ -57,14 +27,5 @@
 	ul {
 		list-style: none;
 		padding-left: 0;
-	}
-
-	.typing-animation {
-		border-right: 2px solid currentColor;
-		display: inline;
-	}
-
-	.typing-animation.complete {
-		border-right: none;
 	}
 </style>
