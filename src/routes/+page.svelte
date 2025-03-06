@@ -1,6 +1,30 @@
+<script lang="ts">
+	import InputGroup from '$lib/InputGroup.svelte';
+	import Section from '$lib/Section.svelte';
+</script>
+
 <svelte:head>
 	<title>Resolve</title>
 </svelte:head>
+
+<Section>
+	<div class="split">
+		<div>
+			<h1>Insight</h1>
+
+			<p>Insight is the knowledge-base you build with your colleagues.</p>
+			<br />
+
+			<InputGroup>
+				<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
+
+				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
+			</InputGroup>
+		</div>
+
+		<div></div>
+	</div>
+</Section>
 
 <section>
 	<div>

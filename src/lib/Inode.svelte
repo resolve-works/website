@@ -9,8 +9,8 @@
 		type: string;
 		is_ready: boolean;
 		is_owned: boolean;
-		error: string | undefined;
-		users: { name: string };
+		error?: string | undefined;
+		users?: { name: string };
 	}
 
 	let { name, type, is_ready, is_owned, error, users }: Props = $props();

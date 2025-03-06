@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '@fontsource-variable/rubik/index.css';
 	import '@fontsource-variable/roboto-slab/index.css';
+	import Section from '$lib/Section.svelte';
 
 	import { onMount } from 'svelte';
 
@@ -31,25 +32,25 @@
 </script>
 
 <article>
-	<section>
+	<Section class="nav wide">
 		<nav>
 			<h1 class="typing-animation" class:complete={is_complete}>
 				<a href="/">{displayed_text}</a>
 			</h1>
 		</nav>
-	</section>
+	</Section>
 
 	{@render children()}
 
-	<footer>
-		<div>
+	<Section class="footer wide">
+		<div class="footer">
 			<h1>Resolve</h1>
 
 			<a href="/fair-use">Fair Use Policy</a>
 
 			<p>Made with ❤️ in Europe</p>
 		</div>
-	</footer>
+	</Section>
 </article>
 
 <style>
@@ -68,36 +69,19 @@
 		border-right: none;
 	}
 
-	section {
-		background: var(--color-primary);
-	}
-
-	nav {
-		width: 80rem;
-		margin: 0 auto;
-		padding: 2rem 0;
-	}
-
 	nav h1 a {
 		font-size: 1.5rem;
 		color: var(--text-color-light);
 	}
 
-	footer {
-		background: var(--color-navigation-darker);
-		margin: 0;
+	.footer {
 		padding: 8rem 0 4rem;
-		color: var(--text-color-light);
-	}
-	footer > div {
-		width: 80rem;
-		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
 	}
-	footer > div > h1 {
+	.footer > h1 {
 		flex-grow: 1;
 	}
 </style>

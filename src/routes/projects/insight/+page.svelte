@@ -3,15 +3,17 @@
 	import InputGroup from '$lib/InputGroup.svelte';
 	import Icon from '$lib/Icon.svelte';
 	import Inode from '$lib/Inode.svelte';
+	import Section from '$lib/Section.svelte';
+	import Split from '$lib/Split.svelte';
 </script>
 
 <svelte:head>
 	<title>Resolve - Insight</title>
 </svelte:head>
 
-<section class="hero">
-	<div class="split">
-		<div>
+<Section class="hero wide">
+	<Split>
+		{#snippet left()}
 			<h1>Insight</h1>
 
 			<p>Insight is the knowledge-base you build with your colleagues.</p>
@@ -22,9 +24,9 @@
 
 				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
 			</InputGroup>
-		</div>
+		{/snippet}
 
-		<div>
+		{#snippet right()}
 			<Conversation
 				name="Who evaded tax?"
 				inodes={[{ path: '/new leak' }, { path: '/2019/unsolved' }]}
@@ -35,17 +37,20 @@
 				inodes={[{ path: 'correspondence' }]}
 				created_at={new Date()}
 			></Conversation>
-		</div>
-	</div>
-</section>
+		{/snippet}
+	</Split>
+</Section>
 
-<section class="features">
+<Section class="white">
 	<div>
-		<div class="split">
-			<h2>Make sense of documents</h2>
-
-			<p>Keyword search and conversations through generative AI.</p>
-		</div>
+		<Split>
+			{#snippet left()}
+				<h2>Make sense of documents</h2>
+			{/snippet}
+			{#snippet right()}
+				<p class="features">Keyword search and conversations through generative AI.</p>
+			{/snippet}
+		</Split>
 
 		<ul class="checks">
 			<li>
@@ -95,37 +100,30 @@
 	<div class="today">
 		<h3>Start building your organizational knowledge-base today</h3>
 	</div>
-</section>
+</Section>
 
-<section class="funders">
-	<div>
-		<h3>Funding</h3>
-		<p>Insight has been funded by</p>
+<Section>
+	<h3>Funding</h3>
+	<p>Insight has been funded by</p>
 
-		<div class="funder">
-			<div class="logo">
-				<img
-					alt="ftm logo"
-					src="https://www.ftm.nl/assets/img/apple/touch-icon-iphone-retina.png"
-				/>
-			</div>
-			<div class="text">
-				<h4>Follow the Money</h4>
-				<p class="url"><a href="https://ftm.eu">https://www.ftm.eu</a></p>
-
-				<p>
-					Follow the Money is an investigative news outlet for radically independent journalism.
-				</p>
-			</div>
+	<div class="funder">
+		<div class="logo">
+			<img alt="ftm logo" src="https://www.ftm.nl/assets/img/apple/touch-icon-iphone-retina.png" />
 		</div>
+		<div class="text">
+			<h4>Follow the Money</h4>
+			<p class="url"><a href="https://ftm.eu">https://www.ftm.eu</a></p>
 
-		<p class="fund">
-			Interested in funding Insight? <a href="mailto:insight@resolve.works">Contact Us</a>.
-		</p>
+			<p>Follow the Money is an investigative news outlet for radically independent journalism.</p>
+		</div>
 	</div>
-</section>
 
-<section class="footer">
+	<p class="fund">
+		Interested in funding Insight? <a href="mailto:insight@resolve.works">Contact Us</a>.
+	</p>
+</Section>
+
+<Section class="footer spaced">
 	<div class="overlap split">
 		<div>
 			<h2>Curious?</h2>
@@ -151,7 +149,7 @@
 			/>
 		</div>
 	</div>
-</section>
+</Section>
 
 <style>
 	p {
@@ -159,31 +157,10 @@
 		line-height: 2rem;
 	}
 
-	section > div {
-		max-width: 70rem;
-		margin: 0 auto;
-	}
-
 	.split {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
-	}
-
-	section {
-		padding: 4rem 0;
-	}
-
-	.hero {
-		padding: 12rem 0;
-		color: var(--text-color-light);
-		background: var(--color-primary);
-		border-bottom: 1px solid var(--color-primary-darker);
-	}
-
-	.footer > div,
-	.hero > div {
-		max-width: 80rem;
 	}
 
 	.hero h1 {
@@ -199,12 +176,12 @@
 		font-size: 3rem;
 	}
 
-	.features {
-		border-top: 1px solid #fff;
-		background: var(--color-white);
+	h3 {
+		font-size: 2rem;
+		line-height: 3rem;
 	}
 
-	.features .split p {
+	.features {
 		font-size: 2rem;
 		line-height: 2.5rem;
 		margin-top: 3rem;
@@ -270,16 +247,9 @@
 	}
 
 	.today h3 {
-		font-size: 2rem;
-		line-height: 2.5rem;
 		max-width: 50%;
 		text-align: center;
-		margin-bottom: 4rem;
-	}
-
-	.funders h3 {
-		font-size: 2rem;
-		line-height: 2.5rem;
+		margin-bottom: 6rem;
 	}
 
 	.funder {
@@ -303,13 +273,12 @@
 		width: 100%;
 	}
 
-	.funders .fund {
+	.fund {
 		text-align: center;
 		margin: 4rem 0 6rem;
 	}
 
 	.overlap {
-		max-width: 70rem !important;
 		padding: 6rem;
 		color: var(--text-color-light);
 		margin-top: -10rem;
@@ -322,13 +291,5 @@
 
 	.overlap p {
 		margin: 1rem 0 2rem 0;
-	}
-
-	.footer {
-		padding: 0;
-		margin-top: 10rem;
-		border-top: 1px solid var(--color-navigation);
-		background: var(--color-navigation-darker);
-		color: var(--text-color-light);
 	}
 </style>
