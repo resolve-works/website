@@ -53,6 +53,12 @@
 </article>
 
 <style>
+	article {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
 	.typing-animation {
 		border-right: 2px solid currentColor;
 		display: inline;

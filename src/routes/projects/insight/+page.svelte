@@ -140,10 +140,10 @@
 		</div>
 
 		<div>
+			<Inode name="Project planning" type="file" is_ready={true} is_owned={true} />
 			<Inode name="Articles" type="folder" is_ready={true} is_owned={true} />
-			<Inode name="Reports" type="folder" is_ready={true} is_owned={true} />
 			<Inode
-				name="Books"
+				name="Reports"
 				type="folder"
 				is_ready={true}
 				is_owned={false}

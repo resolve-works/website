@@ -2,9 +2,8 @@
 	<title>Resolve</title>
 </svelte:head>
 
-<article>
-	<main>
-		<h1 class="typing-animation" class:complete={is_complete}>{displayed_text}</h1>
+<section>
+	<div>
 		<p>
 			We are IT professionals with a vision. That vision is for technology to empower humans.
 			Empower them to make sense of the void, empower them to find answers, and empower them to dare
@@ -20,12 +19,21 @@
 				<a href="/projects/insight">Insight</a>: The knowledge base for newsrooms.
 			</li>
 		</ul>
-	</main>
-</article>
+	</div>
+</section>
 
 <style>
 	ul {
 		list-style: none;
 		padding-left: 0;
+	}
+
+	section {
+		flex-grow: 1;
+	}
+
+	section > div {
+		max-width: 70rem;
+		margin: 0 auto;
 	}
 </style>
