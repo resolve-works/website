@@ -40,6 +40,16 @@
 	</section>
 
 	{@render children()}
+
+	<footer>
+		<div>
+			<h1>Resolve</h1>
+
+			<a href="/fair-use">Fair Use Policy</a>
+
+			<p>Made with ❤️ in Europe</p>
+		</div>
+	</footer>
 </article>
 
 <style>
@@ -57,13 +67,31 @@
 	}
 
 	nav {
-		width: 70rem;
+		width: 80rem;
 		margin: 0 auto;
-		padding: 1rem 0;
+		padding: 2rem 0;
 	}
 
 	nav h1 a {
 		font-size: 1.5rem;
 		color: var(--text-color-light);
+	}
+
+	footer {
+		background: var(--color-navigation-darker);
+		margin: 0;
+		padding: 8rem 0 4rem;
+		color: var(--text-color-light);
+	}
+	footer > div {
+		width: 80rem;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+	footer > div > h1 {
+		flex-grow: 1;
 	}
 </style>

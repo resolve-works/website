@@ -115,8 +115,37 @@
 		</div>
 
 		<p class="fund">
-			Interested in funding insight? <a href="mailto:insight@resolve.works">Contact Us</a>.
+			Interested in funding Insight? <a href="mailto:insight@resolve.works">Contact Us</a>.
 		</p>
+	</div>
+</section>
+
+<section class="footer">
+	<div class="overlap split">
+		<div>
+			<h2>Curious?</h2>
+			<p>Try our public instance and get in touch!</p>
+			<br />
+			<InputGroup>
+				<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
+
+				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
+			</InputGroup>
+			<br />
+		</div>
+
+		<div>
+			<Conversation
+				name="Who evaded tax?"
+				inodes={[{ path: '/new leak' }, { path: '/2019/unsolved' }]}
+				created_at={new Date()}
+			></Conversation>
+			<Conversation
+				name="What was discussed?"
+				inodes={[{ path: 'correspondence' }]}
+				created_at={new Date()}
+			></Conversation>
+		</div>
 	</div>
 </section>
 
@@ -127,7 +156,7 @@
 	}
 
 	section > div {
-		width: 70rem;
+		max-width: 70rem;
 		margin: 0 auto;
 	}
 
@@ -146,6 +175,11 @@
 		color: var(--text-color-light);
 		background: var(--color-primary);
 		border-bottom: 1px solid var(--color-primary-darker);
+	}
+
+	.footer > div,
+	.hero > div {
+		max-width: 80rem;
 	}
 
 	.hero h1 {
@@ -267,6 +301,26 @@
 
 	.funders .fund {
 		text-align: center;
-		margin: 4rem 0 8rem;
+		margin: 4rem 0 6rem;
+	}
+
+	.overlap {
+		max-width: 70rem !important;
+		padding: 4rem;
+		color: var(--text-color-light);
+		margin-top: -10rem;
+		background: var(--color-primary);
+	}
+
+	.overlap p {
+		margin: 1rem 0 2rem 0;
+	}
+
+	.footer {
+		padding: 0;
+		margin-top: 10rem;
+		border-top: 1px solid var(--color-navigation);
+		background: var(--color-navigation-darker);
+		color: var(--text-color-light);
 	}
 </style>
