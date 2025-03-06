@@ -5,19 +5,23 @@
 	import Inode from '$lib/Inode.svelte';
 	import Section from '$lib/Section.svelte';
 	import Split from '$lib/Split.svelte';
+	import Nav from '$lib/Nav.svelte';
+	import Hero from '$lib/Hero.svelte';
 </script>
 
 <svelte:head>
 	<title>Resolve - Insight</title>
 </svelte:head>
 
-<Section class="hero wide">
+<Nav class="primary" />
+
+<Section class="hero wide primary border-bottom">
 	<Split>
 		{#snippet left()}
-			<h1>Insight</h1>
-
-			<p>Insight is the knowledge-base you build with your colleagues.</p>
-			<br />
+			<Hero
+				heading={'Insight'}
+				paragraph={'Insight is the knowledge-base you build with your colleagues.'}
+			/>
 
 			<InputGroup>
 				<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
@@ -41,7 +45,7 @@
 	</Split>
 </Section>
 
-<Section class="white">
+<Section class="white border-top">
 	<div>
 		<Split>
 			{#snippet left()}
@@ -123,62 +127,48 @@
 	</p>
 </Section>
 
-<Section class="footer spaced">
-	<div class="overlap split">
-		<div>
-			<h2>Curious?</h2>
-			<p>Try our public instance and get in touch!</p>
-			<br />
-			<InputGroup>
-				<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
+<Section class="footer spaced dark border-top">
+	<div class="overlap">
+		<Split>
+			{#snippet left()}
+				<Hero heading="Curious?" paragraph="Try our public instance and get in touch!" />
+				<InputGroup>
+					<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
 
-				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
-			</InputGroup>
-			<br />
-		</div>
+					<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
+				</InputGroup>
+				<br />
+			{/snippet}
 
-		<div>
-			<Inode name="Project planning" type="file" is_ready={true} is_owned={true} />
-			<Inode name="Articles" type="folder" is_ready={true} is_owned={true} />
-			<Inode
-				name="Reports"
-				type="folder"
-				is_ready={true}
-				is_owned={false}
-				users={{ name: 'Colleague' }}
-			/>
-		</div>
+			{#snippet right()}
+				<Inode name="Project planning" type="file" is_ready={true} is_owned={true} />
+				<Inode name="Articles" type="folder" is_ready={true} is_owned={true} />
+				<Inode
+					name="Reports"
+					type="folder"
+					is_ready={true}
+					is_owned={false}
+					users={{ name: 'Colleague' }}
+				/>
+			{/snippet}
+		</Split>
 	</div>
 </Section>
 
 <style>
-	p {
-		font-size: 1.2rem;
-		line-height: 2rem;
-	}
-
-	.split {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
-	}
-
-	.hero h1 {
-		font-size: 4rem;
-		margin: 1rem 0 2rem 0;
-	}
-
-	.hero p {
-		margin: 1rem 0 2rem 0;
-	}
-
 	h2 {
 		font-size: 3rem;
+		line-height: 4.5rem;
 	}
 
 	h3 {
 		font-size: 2rem;
 		line-height: 3rem;
+	}
+
+	p {
+		font-size: 1.2rem;
+		line-height: 2rem;
 	}
 
 	.features {

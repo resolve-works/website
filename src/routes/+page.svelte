@@ -1,24 +1,23 @@
 <script lang="ts">
 	import InputGroup from '$lib/InputGroup.svelte';
 	import Section from '$lib/Section.svelte';
+	import Nav from '$lib/Nav.svelte';
+	import Hero from '$lib/Hero.svelte';
 </script>
 
 <svelte:head>
 	<title>Resolve</title>
 </svelte:head>
 
-<Section>
+<Nav class="dark" />
+
+<Section class="hero wide dark">
 	<div class="split">
 		<div>
-			<h1>Insight</h1>
-
-			<p>Insight is the knowledge-base you build with your colleagues.</p>
-			<br />
+			<Hero heading={'Resolve'} paragraph={'We are IT professionals with a vision.'} />
 
 			<InputGroup>
-				<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
-
-				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
+				<a class="button big secondary" href="mailto:johan@resolve.works">Contact Us</a>
 			</InputGroup>
 		</div>
 
@@ -26,12 +25,11 @@
 	</div>
 </Section>
 
-<section>
+<Section>
 	<div>
 		<p>
-			We are IT professionals with a vision. That vision is for technology to empower humans.
-			Empower them to make sense of the void, empower them to find answers, and empower them to dare
-			to ask questions.
+			That vision is for technology to empower humans. Empower them to make sense of the void,
+			empower them to find answers, and empower them to dare to ask questions.
 		</p>
 
 		<p>Will you explore with us? <a href="mailto:johan@resolve.works">Contact us</a></p>
@@ -44,9 +42,24 @@
 			</li>
 		</ul>
 	</div>
-</section>
+</Section>
 
 <style>
+	h2 {
+		font-size: 3rem;
+		line-height: 4.5rem;
+	}
+
+	h3 {
+		font-size: 2rem;
+		line-height: 3rem;
+	}
+
+	p {
+		font-size: 1.2rem;
+		line-height: 2rem;
+	}
+
 	ul {
 		list-style: none;
 		padding-left: 0;

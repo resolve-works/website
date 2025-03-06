@@ -24,32 +24,46 @@
 		margin: 0 auto;
 	}
 
-	section.nav {
-		background: var(--color-primary);
-		padding: 2rem 0;
-	}
-
-	section.hero {
+	section.primary {
 		background: var(--color-primary);
 		color: var(--text-color-light);
-		padding: 12rem 0;
+	}
+
+	section.primary.border-bottom {
 		border-bottom: 1px solid var(--color-primary-darker);
 	}
 
-	section.footer {
-		padding: 0;
+	section.dark {
 		background: var(--color-navigation-darker);
 		color: var(--text-color-light);
 	}
 
-	section.footer.spaced {
-		margin-top: 10rem;
+	section.dark.border-top {
 		border-top: 1px solid var(--color-navigation);
 	}
 
 	section.white {
 		background: var(--color-white);
-		border-top: #fff;
+	}
+
+	section.white.border-top {
+		border-top: 1px solid #fff;
+	}
+
+	section.nav {
+		padding: 2rem 0;
+	}
+
+	section.hero {
+		padding: 12rem 0;
+	}
+
+	section.footer {
+		padding: 0;
+	}
+
+	section.footer.spaced {
+		margin-top: 10rem;
 	}
 
 	section.wide > div {
