@@ -310,10 +310,14 @@
 
 	.overlap {
 		max-width: 70rem !important;
-		padding: 4rem;
+		padding: 6rem;
 		color: var(--text-color-light);
 		margin-top: -10rem;
 		background: var(--color-primary);
+	}
+
+	.overlap h2 {
+		margin-top: 1rem;
 	}
 
 	.overlap p {
