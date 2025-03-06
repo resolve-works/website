@@ -3,6 +3,7 @@
 	import Section from '$lib/Section.svelte';
 	import Nav from '$lib/Nav.svelte';
 	import Hero from '$lib/Hero.svelte';
+	import Viz from '$lib/Viz.svelte';
 </script>
 
 <svelte:head>
@@ -12,36 +13,34 @@
 <Nav class="dark" />
 
 <Section class="hero wide dark">
-	<div class="split">
-		<div>
-			<Hero heading={'Resolve'} paragraph={'We are IT professionals with a vision.'} />
+	<div>
+		<Hero heading={'Resolve'} paragraph={'We are IT professionals with a vision.'} />
 
-			<InputGroup>
-				<a class="button big secondary" href="mailto:johan@resolve.works">Contact Us</a>
-			</InputGroup>
-		</div>
+		<InputGroup>
+			<a class="button big secondary" href="mailto:johan@resolve.works">Contact Us</a>
+		</InputGroup>
+	</div>
 
-		<div></div>
+	<div class="viz">
+		<Viz />
 	</div>
 </Section>
 
 <Section>
-	<div>
-		<p>
-			That vision is for technology to empower humans. Empower them to make sense of the void,
-			empower them to find answers, and empower them to dare to ask questions.
-		</p>
+	<p>
+		That vision is for technology to empower humans. Empower them to make sense of the void, empower
+		them to find answers, and empower them to dare to ask questions.
+	</p>
 
-		<p>Will you explore with us? <a href="mailto:johan@resolve.works">Contact us</a></p>
-		<br />
+	<p>Will you explore with us? <a href="mailto:johan@resolve.works">Contact us</a></p>
+	<br />
 
-		<h3>Projects</h3>
-		<ul>
-			<li>
-				<a href="/projects/insight">Insight</a>: The knowledge base for newsrooms.
-			</li>
-		</ul>
-	</div>
+	<h3>Projects</h3>
+	<ul>
+		<li>
+			<a href="/projects/insight">Insight</a>: The knowledge base for newsrooms.
+		</li>
+	</ul>
 </Section>
 
 <style>
@@ -65,12 +64,11 @@
 		padding-left: 0;
 	}
 
-	section {
-		flex-grow: 1;
-	}
-
-	section > div {
-		max-width: 70rem;
-		margin: 0 auto;
+	.viz {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
 	}
 </style>

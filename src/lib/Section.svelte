@@ -16,6 +16,7 @@
 
 <style>
 	section {
+		position: relative;
 		padding: 4rem 0;
 	}
 
