@@ -2,7 +2,12 @@
 	import Conversation from '$lib/Conversation.svelte';
 	import InputGroup from '$lib/InputGroup.svelte';
 	import Icon from '$lib/Icon.svelte';
+	import Inode from '$lib/Inode.svelte';
 </script>
+
+<svelte:head>
+	<title>Resolve - Insight</title>
+</svelte:head>
 
 <section class="hero">
 	<div class="split">
@@ -135,16 +140,15 @@
 		</div>
 
 		<div>
-			<Conversation
-				name="Who evaded tax?"
-				inodes={[{ path: '/new leak' }, { path: '/2019/unsolved' }]}
-				created_at={new Date()}
-			></Conversation>
-			<Conversation
-				name="What was discussed?"
-				inodes={[{ path: 'correspondence' }]}
-				created_at={new Date()}
-			></Conversation>
+			<Inode name="Articles" type="folder" is_ready={true} is_owned={true} />
+			<Inode name="Reports" type="folder" is_ready={true} is_owned={true} />
+			<Inode
+				name="Books"
+				type="folder"
+				is_ready={true}
+				is_owned={false}
+				users={{ name: 'Colleague' }}
+			/>
 		</div>
 	</div>
 </section>

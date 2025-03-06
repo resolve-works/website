@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>resolve</title>
+	<title>Resolve</title>
 </svelte:head>
 
 <article>
