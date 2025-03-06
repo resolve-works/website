@@ -7,7 +7,9 @@
 </script>
 
 <article>
-	{@render children()}
+	<div>
+		{@render children()}
+	</div>
 
 	<Section class="footer wide dark">
 		<div class="footer">
@@ -25,6 +27,10 @@
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
+	}
+
+	article > div {
+		flex-grow: 1;
 	}
 
 	.footer {

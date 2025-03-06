@@ -5,7 +5,12 @@
 	import Hero from '$lib/Hero.svelte';
 	import Viz from '$lib/Viz.svelte';
 
-	const viz = { angleX: -0.3 * Math.PI, angleY: -0.3 * Math.PI, angleZ: -0.3 * Math.PI, zoom: 2.8 };
+	const viz = {
+		angleX: -0.35 * Math.PI,
+		angleY: -0.3 * Math.PI,
+		angleZ: -0.3 * Math.PI,
+		zoom: 3.8
+	};
 </script>
 
 <svelte:head>
