@@ -4,6 +4,8 @@
 	import Nav from '$lib/Nav.svelte';
 	import Hero from '$lib/Hero.svelte';
 	import Viz from '$lib/Viz.svelte';
+
+	const viz = { angleX: -0.3 * Math.PI, angleY: -0.3 * Math.PI, angleZ: -0.3 * Math.PI, zoom: 2.8 };
 </script>
 
 <svelte:head>
@@ -21,8 +23,10 @@
 		</InputGroup>
 	</div>
 
-	<div class="viz">
-		<Viz />
+	<div class="viz-container">
+		<div class="viz">
+			<Viz {...viz} />
+		</div>
 	</div>
 </Section>
 
@@ -64,11 +68,20 @@
 		padding-left: 0;
 	}
 
-	.viz {
+	.viz-container {
 		position: absolute;
 		left: 0;
 		top: 0;
 		right: 0;
 		bottom: 0;
+		overflow: hidden;
+	}
+
+	.viz {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: -50%;
+		bottom: -50%;
 	}
 </style>

@@ -6,8 +6,12 @@
 	export let circleRadius = 2;
 
 	// Camera/view angles (in radians)
-	export let angleX = (60 * Math.PI) / 180; // 60 degrees down
-	export let angleY = (30 * Math.PI) / 180; // 30 degrees to the left
+	export let angleX = (60 * Math.PI) / 180; // X-axis rotation (pitch)
+	export let angleY = (30 * Math.PI) / 180; // Y-axis rotation (yaw)
+	export let angleZ = 0; // Z-axis rotation (roll)
+
+	// Zoom control
+	export let zoom = 1.0; // Zoom factor (1.0 = default, > 1 = zoom in, < 1 = zoom out)
 
 	let canvas;
 	let canvasContainer;
@@ -19,18 +23,27 @@
 
 	// 3D rotation and projection functions
 	function rotatePoint(x, y, z) {
-		// First rotate around Y axis (left/right)
-		let x1 = x * Math.cos(angleY) - z * Math.sin(angleY);
-		let z1 = x * Math.sin(angleY) + z * Math.cos(angleY);
+		// Apply rotations in Z-X-Y order for proper 3D rotation
 
-		// Then rotate around X axis (up/down)
-		let y2 = y * Math.cos(angleX) - z1 * Math.sin(angleX);
-		let z2 = y * Math.sin(angleX) + z1 * Math.cos(angleX);
+		// First rotate around Z axis (roll)
+		let x1 = x * Math.cos(angleZ) - y * Math.sin(angleZ);
+		let y1 = x * Math.sin(angleZ) + y * Math.cos(angleZ);
+		let z1 = z;
+
+		// Then rotate around X axis (pitch)
+		let y2 = y1 * Math.cos(angleX) - z1 * Math.sin(angleX);
+		let z2 = y1 * Math.sin(angleX) + z1 * Math.cos(angleX);
+		let x2 = x1;
+
+		// Finally rotate around Y axis (yaw)
+		let x3 = x2 * Math.cos(angleY) - z2 * Math.sin(angleY);
+		let z3 = x2 * Math.sin(angleY) + z2 * Math.cos(angleY);
+		let y3 = y2;
 
 		return {
-			x: x1,
-			y: y2,
-			z: z2
+			x: x3,
+			y: y3,
+			z: z3
 		};
 	}
 
@@ -39,13 +52,18 @@
 		// Define a focal length for perspective
 		const focalLength = Math.max(width, height);
 
-		// Apply perspective projection
-		const scale = focalLength / (focalLength + z);
+		// Calculate depth factor for size scaling based on z-position
+		// This will be used to scale circles based on distance
+		const depthFactor = (focalLength / (focalLength + z)) * 1.5;
+
+		// Apply perspective projection with zoom factor
+		const scale = (focalLength / (focalLength + z)) * zoom;
 
 		return {
 			x: width / 2 + x * scale,
 			y: height / 2 + y * scale,
-			z: z
+			z: z,
+			depthFactor: depthFactor // Include depth factor for radius scaling
 		};
 	}
 
@@ -104,7 +122,7 @@
 		ctx.clearRect(0, 0, width, height);
 
 		// Update circle positions based on wave animation
-		const time = timestamp * 0.001; // Convert to seconds
+		const time = timestamp * 0.0005; // Convert to seconds
 		const waveAmplitude = 20; // Height of the wave motion
 
 		// Create a flat list for rendering circles
@@ -136,6 +154,7 @@
 				const projected = projectPoint(rotated.x, rotated.y, rotated.z);
 				circle.x = projected.x;
 				circle.y = projected.y;
+				circle.depthFactor = projected.depthFactor;
 
 				flattenedGrid.push(circle);
 			}
@@ -178,9 +197,17 @@
 		flattenedGrid.forEach((circle) => {
 			const pulse = Math.sin(timestamp * 0.001 + circle.pulseOffset) * 0.5 + 1.5;
 
+			// Apply depth factor to circle radius for perspective effect
+			const perspectiveRadius = circleRadius * pulse * circle.depthFactor;
+
 			ctx.beginPath();
-			ctx.arc(circle.x, circle.y, circleRadius * pulse, 0, Math.PI * 2);
-			ctx.fillStyle = circle.color;
+			ctx.arc(circle.x, circle.y, perspectiveRadius, 0, Math.PI * 2);
+
+			// Also adjust opacity based on depth for enhanced perspective
+			const depthOpacity = Math.min(1, circle.depthFactor * 0.8);
+			const originalColor = circle.color.replace(/[\d.]+\)$/, ''); // Remove the opacity value
+			ctx.fillStyle = `${originalColor}${depthOpacity})`;
+
 			ctx.fill();
 		});
 
@@ -202,6 +229,14 @@
 
 		// Reinitialize grid with new dimensions
 		initGrid();
+	}
+
+	// Watch for changes in props to update the grid
+	$: if (width && height && (zoom !== undefined || angleZ !== undefined)) {
+		// If the grid is already initialized and parameters change, reinitialize
+		if (grid.length > 0) {
+			initGrid();
+		}
 	}
 
 	onMount(() => {
