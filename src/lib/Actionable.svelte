@@ -31,7 +31,6 @@
 	header {
 		display: grid;
 		grid-template-columns: 1fr auto;
-		gap: 5rem;
 		align-items: center;
 		justify-content: space-between;
 	}

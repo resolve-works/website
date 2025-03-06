@@ -1,12 +1,11 @@
 <script lang="ts">
-	import Section from '$lib/Section.svelte';
 	import Conversation from '$lib/Conversation.svelte';
 	import InputGroup from '$lib/InputGroup.svelte';
 	import Icon from '$lib/Icon.svelte';
 </script>
 
-<Section is_primary={true}>
-	<div class="split hero">
+<section class="hero">
+	<div class="split">
 		<div>
 			<h1>Insight</h1>
 
@@ -14,9 +13,9 @@
 			<br />
 
 			<InputGroup>
-				<a class="button secondary" href="mailto:insight@resolve.works">Contact Us</a>
+				<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
 
-				<a class="button" href="https://insight.resolve.works">Try Insight</a>
+				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
 			</InputGroup>
 		</div>
 
@@ -33,27 +32,23 @@
 			></Conversation>
 		</div>
 	</div>
-</Section>
+</section>
 
-<Section>
-	<div class="features">
+<section class="features">
+	<div>
 		<div class="split">
-			<div>
-				<h2>Make sense of documents</h2>
-			</div>
+			<h2>Make sense of documents</h2>
 
-			<div>
-				<p>Keyword search and conversations with a generative AI model.</p>
-			</div>
+			<p>Keyword search and conversations through generative AI.</p>
 		</div>
 
 		<ul class="checks">
 			<li>
-				<Icon class="gg-check-o" /> Multi-user
+				<Icon class="gg-check-o" /> Open-source
 			</li>
 
 			<li>
-				<Icon class="gg-check-o" /> Store large volumes
+				<Icon class="gg-check-o" /> Multi-user
 			</li>
 
 			<li>
@@ -62,84 +57,103 @@
 		</ul>
 	</div>
 
-	Insight is an organizational knowledge base designed to store and make sense of large volumes of
-	documents through keyword searches and conversations with a generative AI model.
+	<div class="blocks">
+		<div class="step-1">
+			<p class="icon"><Icon class="gg-file-document" /></p>
 
-	<p>
-		It is a tool aimed at organizations that have to make sense of large amounts of documents, for
-		example newsrooms or thinktanks. It is a multi-user system which allows users to ingest sets of
-		PDFs. Users can use the <a href="https://github.com/resolve-works/insight-ui">Web GUI</a>
-		or <a href="https://github.com/resolve-works/insight-client">CLI client / Python library</a> to add
-		document sets for their own use, or for the whole organization.
-	</p>
-</Section>
+			<h4>1</h4>
+			<p>Upload</p>
+		</div>
 
-<p>
-	It is a tool aimed at organizations that have to make sense of large amounts of documents, for
-	example newsrooms or thinktanks. It is a multi-user system which allows users to ingest sets of
-	PDFs. Users can use the <a href="https://github.com/resolve-works/insight-ui">Web GUI</a>
-	or <a href="https://github.com/resolve-works/insight-client">CLI client / Python library</a> to add
-	document sets for their own use, or for the whole organization.
-</p>
+		<div class="step-2">
+			<p class="icon"><Icon class="gg-comment" /></p>
 
-<p>
-	It was created out of a need to research large FOIA requests without having to read them all. So
-	while search is a big part of Insight, the main goal is to allow the user to explore. When
-	investigative journalists get access to a set of documents, they often don't know what information
-	is in them, or what they are looking for. Insight tries to strip irrelevant information away to
-	provide clues about what the interesting bits are, and provides the tools to dig deeper when those
-	bits are found.
-</p>
+			<h4>2</h4>
+			<p>Explore</p>
+		</div>
 
-<p>
-	FOIA requests are often not the best quality documents, like scans or documents with censored
-	information. To handle these the ingest process OCRs PDFs that have no embedded text layers and
-	optimizes the PDF for web viewing. With these optimizations and some
-	[magic](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) Insight makes it
-	possible to view large PDFs quickly in the browser.
-</p>
+		<div class="step-3">
+			<p class="icon"><Icon class="gg-search" /></p>
 
-<p>
-	The goal of insight is to provide insight into those documents. It aims to achieve that through
-	the use of several technologies working in harmony.
-</p>
+			<h4>3</h4>
+			<p>Research</p>
+		</div>
 
-<ul>
-	<li>
-		Keyword search. All documents are indexed and searchable by keyword. The search will highlight
-		snippets of the pages that matched the query, and allows the user to navigate to hits directly.
-	</li>
-	<li>
-		Semantic search. All documents are embedded and searchable semantically, which means that the
-		user can prompt insight to return pages that are semantically similar to the users query
-	</li>
-	<li>
-		Large language models. The results of the semantic search are fed into a LLM that will try to
-		answer the users query based on the search results. The LLM is capable of producing quotes of
-		the search results, which then can be fed into the keyword search.
-	</li>
-</ul>
+		<div class="step-4">
+			<p class="icon"><Icon class="gg-copy" /></p>
 
-<p>
-	As Insight develops further, the goal is to make exploring information quicker, easier, and
-	generally more fun. We accomplish this through improving the harmony between these technologies,
-	with a focus on user-friendly design and performance.
-</p>
+			<h4>4</h4>
+			<p>Share</p>
+		</div>
+	</div>
+
+	<div class="today">
+		<h3>Start building your organizational knowledge-base today</h3>
+	</div>
+</section>
+
+<section class="funders">
+	<div>
+		<h3>Funding</h3>
+		<p>Insight has been funded by</p>
+
+		<div class="funder">
+			<div class="logo">
+				<img
+					alt="ftm logo"
+					src="https://www.ftm.nl/assets/img/apple/touch-icon-iphone-retina.png"
+				/>
+			</div>
+			<div class="text">
+				<h4>Follow the Money</h4>
+				<p class="url"><a href="https://ftm.eu">https://www.ftm.eu</a></p>
+
+				<p>
+					Follow the Money is an investigative news outlet for radically independent journalism.
+				</p>
+			</div>
+		</div>
+
+		<p class="fund">
+			Interested in funding insight? <a href="mailto:insight@resolve.works">Contact Us</a>.
+		</p>
+	</div>
+</section>
 
 <style>
+	p {
+		font-size: 1.2rem;
+		line-height: 2rem;
+	}
+
+	section > div {
+		width: 70rem;
+		margin: 0 auto;
+	}
+
 	.split {
 		display: grid;
-		grid-template-columns: 50% 50%;
-		gap: 4rem;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	section {
+		padding: 4rem 0;
 	}
 
 	.hero {
-		padding: 8rem 0;
+		padding: 12rem 0;
 		color: var(--text-color-light);
+		background: var(--color-primary);
+		border-bottom: 1px solid var(--color-primary-darker);
 	}
 
 	.hero h1 {
 		font-size: 4rem;
+		margin: 1rem 0 2rem 0;
+	}
+
+	.hero p {
 		margin: 1rem 0 2rem 0;
 	}
 
@@ -148,10 +162,11 @@
 	}
 
 	.features {
-		margin: 2rem 0;
+		border-top: 1px solid #fff;
+		background: var(--color-white);
 	}
 
-	.features p {
+	.features .split p {
 		font-size: 2rem;
 		line-height: 2.5rem;
 		margin-top: 3rem;
@@ -168,5 +183,90 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
+		font-size: 1.2rem;
+	}
+
+	.blocks {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 1rem;
+		padding: 4rem 0;
+	}
+
+	.blocks > div {
+		background: var(--color-page);
+		padding: 0 1rem;
+	}
+
+	.blocks > div .icon {
+		--ggs: 3;
+		width: 4rem;
+		height: 5rem;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+	.blocks > div h4 {
+		font-size: 2rem;
+		margin: 8rem 0 1rem;
+	}
+
+	.blocks .step-2 {
+		background: var(--color-secondary-lighter);
+	}
+
+	.blocks .step-3 {
+		background: var(--color-primary-lighter);
+		color: var(--text-color-light);
+	}
+
+	.blocks .step-4 {
+		background: var(--text-color-dark);
+		color: var(--text-color-light);
+	}
+
+	.today {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.today h3 {
+		font-size: 2rem;
+		line-height: 2.5rem;
+		max-width: 50%;
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.funders h3 {
+		font-size: 2rem;
+		line-height: 2.5rem;
+	}
+
+	.funder {
+		display: grid;
+		grid-template-columns: 1fr 5fr;
+		gap: 2rem;
+		background: var(--color-white);
+		padding: 2rem;
+	}
+
+	.funder h4 {
+		font-size: 1.4rem;
+		margin-bottom: 0;
+	}
+
+	.funder .url {
+		margin-top: 0.5rem;
+	}
+
+	.funder .logo img {
+		width: 100%;
+	}
+
+	.funders .fund {
+		text-align: center;
+		margin: 4rem 0 8rem;
 	}
 </style>

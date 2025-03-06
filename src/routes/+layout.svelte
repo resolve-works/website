@@ -3,7 +3,6 @@
 	import '@fontsource-variable/roboto-slab/index.css';
 
 	import { onMount } from 'svelte';
-	import Section from '$lib/Section.svelte';
 
 	let text: string = 'Resolve';
 	let speed: number = 50;
@@ -32,13 +31,13 @@
 </script>
 
 <article>
-	<Section is_primary={true}>
+	<section>
 		<nav>
 			<h1 class="typing-animation" class:complete={is_complete}>
 				<a href="/">{displayed_text}</a>
 			</h1>
 		</nav>
-	</Section>
+	</section>
 
 	{@render children()}
 </article>
@@ -53,7 +52,13 @@
 		border-right: none;
 	}
 
+	section {
+		background: var(--color-primary);
+	}
+
 	nav {
+		width: 70rem;
+		margin: 0 auto;
 		padding: 1rem 0;
 	}
 
