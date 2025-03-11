@@ -17,6 +17,8 @@
 
 			<a href="/fair-use">Fair Use Policy</a>
 
+			<a href="https://github.com/resolve-works">GitHub</a>
+
 			<p>Made with ❤️ in Europe</p>
 		</div>
 	</Section>

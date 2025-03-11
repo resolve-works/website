@@ -174,7 +174,7 @@
 	.features {
 		font-size: 2rem;
 		line-height: 2.5rem;
-		margin-top: 3rem;
+		margin-top: 3.5rem;
 	}
 
 	ul.checks {

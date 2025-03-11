@@ -13,6 +13,9 @@
 	// Zoom control
 	export let zoom = 1.0; // Zoom factor (1.0 = default, > 1 = zoom in, < 1 = zoom out)
 
+	// Perspective control - new prop
+	export let perspective = 1.0; // Controls how much circles scale with distance (0 = no scaling, higher values = more dramatic scaling)
+
 	let canvas;
 	let canvasContainer;
 	let ctx;
@@ -52,9 +55,17 @@
 		// Define a focal length for perspective
 		const focalLength = Math.max(width, height);
 
-		// Calculate depth factor for size scaling based on z-position
-		// This will be used to scale circles based on distance
-		const depthFactor = (focalLength / (focalLength + z)) * 1.5;
+		// Calculate distance from camera for proper depth calculation
+		// This takes into account the camera's position/rotation
+		const distanceFromCamera = z;
+
+		// For accurate perspective, we need actual distance from camera, but we don't have it yet
+		// This is a simplified calculation that will be improved when we calculate distanceFromCamera
+		// in the animation loop
+		const depthFactor =
+			perspective > 0
+				? Math.max(0.1, focalLength / (focalLength + Math.abs(z) * perspective))
+				: 1.0; // If perspective is 0, all circles have the same size
 
 		// Apply perspective projection with zoom factor
 		const scale = (focalLength / (focalLength + z)) * zoom;
@@ -122,11 +133,17 @@
 		ctx.clearRect(0, 0, width, height);
 
 		// Update circle positions based on wave animation
-		const time = timestamp * 0.0005; // Convert to seconds
-		const waveAmplitude = 20; // Height of the wave motion
+		const time = timestamp * 0.0003; // Convert to seconds
+		const waveAmplitude = 15; // Height of the wave motion
 
 		// Create a flat list for rendering circles
 		const flattenedGrid = [];
+
+		// Calculate camera position in 3D space (needed for accurate depth calculations)
+		// For this simple visualization, we'll treat the camera as being at (0,0,-focalLength) in view space
+		// after all rotations have been applied
+		const focalLength = Math.max(width, height);
+		const cameraZ = -focalLength;
 
 		// Update all circle positions with the wave motion
 		for (let y = 0; y < gridSize; y++) {
@@ -149,6 +166,12 @@
 				circle.x3D = rotated.x;
 				circle.y3D = rotated.y;
 				circle.z3D = rotated.z;
+
+				// Calculate true distance from camera (this is what determines perspective)
+				// This properly accounts for the 3D rotation
+				circle.distanceFromCamera = Math.sqrt(
+					Math.pow(circle.x3D, 2) + Math.pow(circle.y3D, 2) + Math.pow(circle.z3D - cameraZ, 2)
+				);
 
 				// Project to 2D
 				const projected = projectPoint(rotated.x, rotated.y, rotated.z);
@@ -190,21 +213,24 @@
 			}
 		}
 
-		// Sort by z-coordinate for proper depth rendering
-		flattenedGrid.sort((a, b) => b.z3D - a.z3D);
+		// Sort by actual distance from camera for proper depth rendering
+		flattenedGrid.sort((a, b) => b.distanceFromCamera - a.distanceFromCamera);
 
-		// Draw circles with subtle animation (back to front)
+		// Draw circles with proper perspective (back to front)
 		flattenedGrid.forEach((circle) => {
-			const pulse = Math.sin(timestamp * 0.001 + circle.pulseOffset) * 0.5 + 1.5;
+			// We can either keep or remove the pulse animation
+			// For consistent sizing based only on perspective, remove the pulse variable from the calculation
+			// const pulse = Math.sin(timestamp * 0.001 + circle.pulseOffset) * 0.5 + 1.5;
 
 			// Apply depth factor to circle radius for perspective effect
-			const perspectiveRadius = circleRadius * pulse * circle.depthFactor;
+			// Using only depth factor without the pulse animation for consistent sizing
+			const perspectiveRadius = circleRadius * circle.depthFactor;
 
 			ctx.beginPath();
 			ctx.arc(circle.x, circle.y, perspectiveRadius, 0, Math.PI * 2);
 
 			// Also adjust opacity based on depth for enhanced perspective
-			const depthOpacity = Math.min(1, circle.depthFactor * 0.8);
+			const depthOpacity = Math.min(1, circle.depthFactor);
 			const originalColor = circle.color.replace(/[\d.]+\)$/, ''); // Remove the opacity value
 			ctx.fillStyle = `${originalColor}${depthOpacity})`;
 
@@ -232,7 +258,15 @@
 	}
 
 	// Watch for changes in props to update the grid
-	$: if (width && height && (zoom !== undefined || angleZ !== undefined)) {
+	$: if (
+		width &&
+		height &&
+		(zoom !== undefined ||
+			angleX !== undefined ||
+			angleY !== undefined ||
+			angleZ !== undefined ||
+			perspective !== undefined)
+	) {
 		// If the grid is already initialized and parameters change, reinitialize
 		if (grid.length > 0) {
 			initGrid();
