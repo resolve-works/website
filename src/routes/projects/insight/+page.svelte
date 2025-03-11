@@ -31,16 +31,18 @@
 		{/snippet}
 
 		{#snippet right()}
-			<Conversation
-				name="Who evaded tax?"
-				inodes={[{ path: '/new leak' }, { path: '/2019/unsolved' }]}
-				created_at={new Date()}
-			></Conversation>
-			<Conversation
-				name="What was discussed?"
-				inodes={[{ path: 'correspondence' }]}
-				created_at={new Date()}
-			></Conversation>
+			<div class="hide-on-mobile">
+				<Conversation
+					name="Who evaded tax?"
+					inodes={[{ path: '/new leak' }, { path: '/2019/unsolved' }]}
+					created_at={new Date()}
+				></Conversation>
+				<Conversation
+					name="What was discussed?"
+					inodes={[{ path: 'correspondence' }]}
+					created_at={new Date()}
+				></Conversation>
+			</div>
 		{/snippet}
 	</Split>
 </Section>
@@ -141,15 +143,17 @@
 			{/snippet}
 
 			{#snippet right()}
-				<Inode name="Project planning" type="file" is_ready={true} is_owned={true} />
-				<Inode name="Articles" type="folder" is_ready={true} is_owned={true} />
-				<Inode
-					name="Reports"
-					type="folder"
-					is_ready={true}
-					is_owned={false}
-					users={{ name: 'Colleague' }}
-				/>
+				<div class="hide-on-mobile">
+					<Inode name="Project planning" type="file" is_ready={true} is_owned={true} />
+					<Inode name="Articles" type="folder" is_ready={true} is_owned={true} />
+					<Inode
+						name="Reports"
+						type="folder"
+						is_ready={true}
+						is_owned={false}
+						users={{ name: 'Colleague' }}
+					/>
+				</div>
 			{/snippet}
 		</Split>
 	</div>
@@ -359,9 +363,9 @@
 	}
 
 	.overlap {
-		padding: 2rem;
+		padding: 1.5rem;
 		color: var(--text-color-light);
-		margin-top: -5rem;
+		margin-top: 0;
 		background: var(--color-primary);
 	}
 	
@@ -378,5 +382,15 @@
 
 	.overlap p {
 		margin: 1rem 0 2rem 0;
+	}
+	
+	.hide-on-mobile {
+		display: none;
+	}
+	
+	@media (min-width: 768px) {
+		.hide-on-mobile {
+			display: block;
+		}
 	}
 </style>

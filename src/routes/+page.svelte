@@ -72,8 +72,7 @@
 			<div class="text">
 				<h4>Insight</h4>
 				<p class="url">
-					<a href="https://resolve.works/projects/insight">https://resolve.works/projects/insight</a
-					>
+					<a href="/projects/insight">https://resolve.works/projects/insight</a>
 				</p>
 
 				<p>Insight is the knowledge-base you build with your colleagues.</p>
@@ -103,7 +102,7 @@
 		line-height: 2rem;
 		margin-top: 1.5rem;
 	}
-	
+
 	@media (min-width: 768px) {
 		h2 {
 			font-size: 3rem;
@@ -191,7 +190,7 @@
 		color: var(--text-color-light);
 		margin: 0;
 	}
-	
+
 	@media (min-width: 768px) {
 		.project {
 			grid-template-columns: 1fr 5fr;
@@ -203,7 +202,7 @@
 		.project h4 {
 			font-size: 1.4rem;
 		}
-		
+
 		.project .url {
 			word-break: normal;
 		}
