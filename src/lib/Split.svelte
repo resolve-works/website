@@ -22,7 +22,14 @@
 <style>
 	.split {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.split {
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+		}
 	}
 </style>

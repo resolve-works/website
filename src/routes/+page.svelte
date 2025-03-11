@@ -84,24 +84,47 @@
 
 <style>
 	h2 {
-		font-size: 3rem;
-		line-height: 4.5rem;
+		font-size: 2rem;
+		line-height: 2.8rem;
 	}
 
 	h3 {
-		font-size: 2rem;
-		line-height: 3rem;
+		font-size: 1.5rem;
+		line-height: 2.2rem;
 	}
 
 	p {
-		font-size: 1.2rem;
-		line-height: 2rem;
+		font-size: 1.1rem;
+		line-height: 1.8rem;
 	}
 
 	.features {
-		font-size: 2rem;
-		line-height: 2.5rem;
-		margin-top: 3.5rem;
+		font-size: 1.5rem;
+		line-height: 2rem;
+		margin-top: 1.5rem;
+	}
+	
+	@media (min-width: 768px) {
+		h2 {
+			font-size: 3rem;
+			line-height: 4.5rem;
+		}
+
+		h3 {
+			font-size: 2rem;
+			line-height: 3rem;
+		}
+
+		p {
+			font-size: 1.2rem;
+			line-height: 2rem;
+		}
+
+		.features {
+			font-size: 2rem;
+			line-height: 2.5rem;
+			margin-top: 3.5rem;
+		}
 	}
 
 	.gradient {
@@ -137,24 +160,26 @@
 
 	.project {
 		display: grid;
-		grid-template-columns: 1fr 5fr;
-		gap: 2rem;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
 		background: var(--color-white);
-		padding: 2rem;
-		margin-bottom: 4rem;
+		padding: 1.5rem;
+		margin-bottom: 3rem;
 	}
 
 	.project h4 {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 		margin-bottom: 0;
 	}
 
 	.project .url {
 		margin-top: 0.5rem;
+		word-break: break-all;
 	}
 
 	.project .logo .placeholder {
 		width: 100%;
+		max-width: 120px;
 		aspect-ratio: 1;
 		background: var(--color-primary);
 		display: flex;
@@ -165,5 +190,22 @@
 	.project .logo .placeholder h4 {
 		color: var(--text-color-light);
 		margin: 0;
+	}
+	
+	@media (min-width: 768px) {
+		.project {
+			grid-template-columns: 1fr 5fr;
+			gap: 2rem;
+			padding: 2rem;
+			margin-bottom: 4rem;
+		}
+
+		.project h4 {
+			font-size: 1.4rem;
+		}
+		
+		.project .url {
+			word-break: normal;
+		}
 	}
 </style>

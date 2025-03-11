@@ -17,12 +17,17 @@
 <style>
 	section {
 		position: relative;
-		padding: 4rem 0;
+		padding: 4rem 1rem;
 	}
 
 	section > div {
 		max-width: 70rem;
 		margin: 0 auto;
+		width: 100%;
+	}
+
+	section.wide > div {
+		max-width: 90rem !important;
 	}
 
 	section.primary {
@@ -52,11 +57,11 @@
 	}
 
 	section.nav {
-		padding: 2rem 0;
+		padding: 2rem 1rem;
 	}
 
 	section.hero {
-		padding: 12rem 0;
+		padding: 8rem 1rem;
 	}
 
 	section.footer {
@@ -64,10 +69,24 @@
 	}
 
 	section.footer.spaced {
-		margin-top: 10rem;
+		margin-top: 5rem;
 	}
 
-	section.wide > div {
-		max-width: 90rem !important;
+	@media (min-width: 768px) {
+		section {
+			padding: 4rem 2rem;
+		}
+
+		section.nav {
+			padding: 2rem;
+		}
+
+		section.hero {
+			padding: 12rem 2rem;
+		}
+
+		section.footer.spaced {
+			margin-top: 10rem;
+		}
 	}
 </style>

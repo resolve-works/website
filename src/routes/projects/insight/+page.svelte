@@ -157,45 +157,80 @@
 
 <style>
 	h2 {
-		font-size: 3rem;
-		line-height: 4.5rem;
+		font-size: 2rem;
+		line-height: 2.8rem;
 	}
 
 	h3 {
-		font-size: 2rem;
-		line-height: 3rem;
+		font-size: 1.5rem;
+		line-height: 2.2rem;
 	}
 
 	p {
-		font-size: 1.2rem;
-		line-height: 2rem;
+		font-size: 1.1rem;
+		line-height: 1.8rem;
 	}
 
 	.features {
-		font-size: 2rem;
-		line-height: 2.5rem;
-		margin-top: 3.5rem;
+		font-size: 1.5rem;
+		line-height: 2rem;
+		margin-top: 1.5rem;
+	}
+	
+	@media (min-width: 768px) {
+		h2 {
+			font-size: 3rem;
+			line-height: 4.5rem;
+		}
+
+		h3 {
+			font-size: 2rem;
+			line-height: 3rem;
+		}
+
+		p {
+			font-size: 1.2rem;
+			line-height: 2rem;
+		}
+
+		.features {
+			font-size: 2rem;
+			line-height: 2.5rem;
+			margin-top: 3.5rem;
+		}
 	}
 
 	ul.checks {
 		list-style: none;
 		padding-left: 0;
 		display: flex;
-		gap: 2rem;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
 	ul.checks li {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
+	}
+	
+	@media (min-width: 768px) {
+		ul.checks {
+			flex-direction: row;
+			gap: 2rem;
+		}
+		
+		ul.checks li {
+			font-size: 1.2rem;
+		}
 	}
 
 	.blocks {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
-		padding: 4rem 0;
+		padding: 2rem 0;
 	}
 
 	.blocks > div {
@@ -204,16 +239,36 @@
 	}
 
 	.blocks > div .icon {
-		--ggs: 3;
-		width: 4rem;
-		height: 5rem;
+		--ggs: 2;
+		width: 3rem;
+		height: 4rem;
 		align-items: center;
 		display: flex;
 		justify-content: center;
 	}
+	
 	.blocks > div h4 {
-		font-size: 2rem;
-		margin: 8rem 0 1rem;
+		font-size: 1.5rem;
+		margin: 4rem 0 0.5rem;
+	}
+	
+	@media (min-width: 768px) {
+		.blocks {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			gap: 1rem;
+			padding: 4rem 0;
+		}
+		
+		.blocks > div .icon {
+			--ggs: 3;
+			width: 4rem;
+			height: 5rem;
+		}
+		
+		.blocks > div h4 {
+			font-size: 2rem;
+			margin: 8rem 0 1rem;
+		}
 	}
 
 	.blocks .step-2 {
@@ -237,42 +292,84 @@
 	}
 
 	.today h3 {
-		max-width: 50%;
+		max-width: 100%;
 		text-align: center;
-		margin-bottom: 6rem;
+		margin-bottom: 3rem;
+	}
+	
+	@media (min-width: 768px) {
+		.today h3 {
+			max-width: 50%;
+			margin-bottom: 6rem;
+		}
 	}
 
 	.funder {
 		display: grid;
-		grid-template-columns: 1fr 5fr;
-		gap: 2rem;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
 		background: var(--color-white);
-		padding: 2rem;
+		padding: 1.5rem;
 	}
 
 	.funder h4 {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 		margin-bottom: 0;
 	}
 
 	.funder .url {
 		margin-top: 0.5rem;
+		word-break: break-all;
 	}
 
 	.funder .logo img {
 		width: 100%;
+		max-width: 120px;
+	}
+	
+	@media (min-width: 768px) {
+		.funder {
+			grid-template-columns: 1fr 5fr;
+			gap: 2rem;
+			padding: 2rem;
+		}
+		
+		.funder h4 {
+			font-size: 1.4rem;
+		}
+		
+		.funder .url {
+			word-break: normal;
+		}
+		
+		.funder .logo img {
+			max-width: none;
+		}
 	}
 
 	.fund {
 		text-align: center;
-		margin: 4rem 0 6rem;
+		margin: 2rem 0 3rem;
+	}
+	
+	@media (min-width: 768px) {
+		.fund {
+			margin: 4rem 0 6rem;
+		}
 	}
 
 	.overlap {
-		padding: 6rem;
+		padding: 2rem;
 		color: var(--text-color-light);
-		margin-top: -10rem;
+		margin-top: -5rem;
 		background: var(--color-primary);
+	}
+	
+	@media (min-width: 768px) {
+		.overlap {
+			padding: 6rem;
+			margin-top: -10rem;
+		}
 	}
 
 	.overlap h2 {

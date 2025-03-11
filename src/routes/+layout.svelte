@@ -36,13 +36,27 @@
 	}
 
 	.footer {
-		padding: 8rem 0 4rem;
+		padding: 4rem 1rem 2rem;
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 2rem;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.5rem;
 	}
 	.footer > h1 {
-		flex-grow: 1;
+		margin-bottom: 0.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.footer {
+			padding: 8rem 0 4rem;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: 2rem;
+		}
+		.footer > h1 {
+			flex-grow: 1;
+			margin-bottom: 0;
+		}
 	}
 </style>
