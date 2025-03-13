@@ -31,7 +31,7 @@
 	<div class="gradient"></div>
 
 	<div class="hero-container">
-		<Hero heading={'Resolve'} paragraph={'Information technology professionals with a vision.'} />
+		<Hero heading={'Resolve'} paragraph={'IT professionals with a vision.'} />
 
 		<InputGroup>
 			<a class="button big secondary" href="mailto:johan@resolve.works">Contact Us</a>
@@ -46,7 +46,7 @@
 				<h2>Empower humans through technology</h2>
 			{/snippet}
 			{#snippet right()}
-				<p class="features">Consultancy and tooling for research organizations</p>
+				<p class="features">Consultancy and tooling for organizations</p>
 			{/snippet}
 		</Split>
 
