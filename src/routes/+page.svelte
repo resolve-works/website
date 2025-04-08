@@ -78,9 +78,9 @@
 				<p>Insight is the knowledge-base you build with your colleagues.</p>
 			</div>
 		</div>
-	</div>
 
-	<div>
+		<br />
+
 		<h3>Datasets</h3>
 		<div class="project">
 			<div class="logo">
@@ -98,6 +98,25 @@
 				</p>
 
 				<p>Beneficiaries of European state aid.</p>
+			</div>
+		</div>
+
+		<div class="project">
+			<div class="logo">
+				<div class="placeholder eu-aid">
+					<h4>EU FTS</h4>
+				</div>
+			</div>
+			<div class="text">
+				<h4>EU Financial Transparency System</h4>
+				<p class="url">
+					<a
+						href="http://metabase.resolve.works/public/dashboard/96448b7b-57ab-4a70-8ecc-bcb5aa715e77"
+						target="_blank">https://metabase.resolve.works/eu-financial-transparency</a
+					>
+				</p>
+
+				<p>Beneficiaries of funding from the EU budget implemented directly by the Commission.</p>
 			</div>
 		</div>
 	</div>
@@ -185,7 +204,7 @@
 		gap: 1.5rem;
 		background: var(--color-white);
 		padding: 1.5rem;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 	}
 
 	.project h4 {
@@ -222,7 +241,6 @@
 			grid-template-columns: 1fr 5fr;
 			gap: 2rem;
 			padding: 2rem;
-			margin-bottom: 4rem;
 		}
 
 		.project h4 {
