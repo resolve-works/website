@@ -79,6 +79,28 @@
 			</div>
 		</div>
 	</div>
+
+	<div>
+		<h3>Datasets</h3>
+		<div class="project">
+			<div class="logo">
+				<div class="placeholder eu-aid">
+					<h4>EU AID</h4>
+				</div>
+			</div>
+			<div class="text">
+				<h4>EU State Aid</h4>
+				<p class="url">
+					<a
+						href="http://metabase.resolve.works/public/dashboard/c44bf611-908b-4e56-a271-6dbdf7cc3cda"
+						target="_blank">https://metabase.resolve.works/eu-state-aid</a
+					>
+				</p>
+
+				<p>Beneficiaries of European state aid.</p>
+			</div>
+		</div>
+	</div>
 </Section>
 
 <style>
@@ -184,6 +206,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.project .logo .placeholder.eu-aid {
+		background: var(--text-color-dark);
 	}
 
 	.project .logo .placeholder h4 {
