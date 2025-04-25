@@ -24,7 +24,11 @@
 			/>
 
 			<InputGroup>
-				<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
+				<a
+					class="button big secondary"
+					href="https://github.com/resolve-works/insight"
+					target="_blank">Github Project</a
+				>
 
 				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
 			</InputGroup>
@@ -133,7 +137,7 @@
 	<div class="overlap">
 		<Split>
 			{#snippet left()}
-				<Hero heading="Curious?" paragraph="Try our public instance and get in touch!" />
+				<Hero heading="Curious?" paragraph="Try our public instance or get in touch!" />
 				<InputGroup>
 					<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
 
@@ -180,7 +184,7 @@
 		line-height: 2rem;
 		margin-top: 1.5rem;
 	}
-	
+
 	@media (min-width: 768px) {
 		h2 {
 			font-size: 3rem;
@@ -218,13 +222,13 @@
 		gap: 0.5rem;
 		font-size: 1.1rem;
 	}
-	
+
 	@media (min-width: 768px) {
 		ul.checks {
 			flex-direction: row;
 			gap: 2rem;
 		}
-		
+
 		ul.checks li {
 			font-size: 1.2rem;
 		}
@@ -250,25 +254,25 @@
 		display: flex;
 		justify-content: center;
 	}
-	
+
 	.blocks > div h4 {
 		font-size: 1.5rem;
 		margin: 4rem 0 0.5rem;
 	}
-	
+
 	@media (min-width: 768px) {
 		.blocks {
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 			gap: 1rem;
 			padding: 4rem 0;
 		}
-		
+
 		.blocks > div .icon {
 			--ggs: 3;
 			width: 4rem;
 			height: 5rem;
 		}
-		
+
 		.blocks > div h4 {
 			font-size: 2rem;
 			margin: 8rem 0 1rem;
@@ -300,7 +304,7 @@
 		text-align: center;
 		margin-bottom: 3rem;
 	}
-	
+
 	@media (min-width: 768px) {
 		.today h3 {
 			max-width: 50%;
@@ -330,22 +334,22 @@
 		width: 100%;
 		max-width: 120px;
 	}
-	
+
 	@media (min-width: 768px) {
 		.funder {
 			grid-template-columns: 1fr 5fr;
 			gap: 2rem;
 			padding: 2rem;
 		}
-		
+
 		.funder h4 {
 			font-size: 1.4rem;
 		}
-		
+
 		.funder .url {
 			word-break: normal;
 		}
-		
+
 		.funder .logo img {
 			max-width: none;
 		}
@@ -355,7 +359,7 @@
 		text-align: center;
 		margin: 2rem 0 3rem;
 	}
-	
+
 	@media (min-width: 768px) {
 		.fund {
 			margin: 4rem 0 6rem;
@@ -368,7 +372,7 @@
 		margin-top: 0;
 		background: var(--color-primary);
 	}
-	
+
 	@media (min-width: 768px) {
 		.overlap {
 			padding: 6rem;
@@ -383,11 +387,11 @@
 	.overlap p {
 		margin: 1rem 0 2rem 0;
 	}
-	
+
 	.hide-on-mobile {
 		display: none;
 	}
-	
+
 	@media (min-width: 768px) {
 		.hide-on-mobile {
 			display: block;
