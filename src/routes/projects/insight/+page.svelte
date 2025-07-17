@@ -30,7 +30,7 @@
 					target="_blank">Github Project</a
 				>
 
-				<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
+				<a class="button big" href="mailto:insight@resolve.works">Contact Us</a>
 			</InputGroup>
 		{/snippet}
 
@@ -137,11 +137,15 @@
 	<div class="overlap">
 		<Split>
 			{#snippet left()}
-				<Hero heading="Curious?" paragraph="Try our public instance or get in touch!" />
+				<Hero heading="Curious?" paragraph="Check the github project or get in touch!" />
 				<InputGroup>
-					<a class="button big secondary" href="mailto:insight@resolve.works">Contact Us</a>
+					<a
+						class="button big secondary"
+						href="https://github.com/resolve-works/insight"
+						target="_blank">Github Project</a
+					>
 
-					<a class="button big" href="https://insight.resolve.works" target="_blank">Try Insight</a>
+					<a class="button big" href="mailto:insight@resolve.works">Contact Us</a>
 				</InputGroup>
 				<br />
 			{/snippet}
